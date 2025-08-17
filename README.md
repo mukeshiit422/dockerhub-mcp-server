@@ -21,15 +21,15 @@ pnpm test
 ```
 
 # MCP server congiguration
-```
+```json
 {
   "mcpServers": {
     "dockerhub": {
       "command": "node",
-      "args": ["/Users/mukeshkumar/Desktop/Dockerhub-mcp-server/dist/index.js"],
+      "args": ["/absolute_path/Dockerhub-mcp-server/dist/index.js"],
       "env": {
-        "DOCKERHUB_USERNAME": "error412",
-        "DOCKERHUB_TOKEN": "Gudu@0422"
+        "DOCKERHUB_USERNAME": "",
+        "DOCKERHUB_TOKEN": ""
       },
       "disabled": false
     }
