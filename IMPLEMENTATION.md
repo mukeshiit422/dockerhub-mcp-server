@@ -91,7 +91,27 @@ Environment variables (see `.env.example`):
 
 ---
 
-## 8 Example I/O (copy‑paste)
+
+## 8  MCP server congiguration for Cline 
+```json
+{
+  "mcpServers": {
+    "dockerhub": {
+      "command": "node",
+      "args": ["/absolute_path/dockerhub-mcp-server/dist/index.js"],
+      "env": {
+        "DOCKERHUB_USERNAME": "",
+        "DOCKERHUB_TOKEN": "",
+        "DOCKERHUB_PASSWORD":""
+      },
+      "disabled": false
+    }
+  }
+}
+```
+---
+
+## 9 Example I/O (copy‑paste)
 
 **Search**
 
