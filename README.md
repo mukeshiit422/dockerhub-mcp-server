@@ -7,7 +7,6 @@ An MCP server that exposes Docker Hub & OCI registry features to AI assistants.
 ```bash
 pnpm i
 cp .env.example .env
-# Fill DOCKERHUB_* if needed
 pnpm run dev
 
 ```
@@ -29,7 +28,7 @@ pnpm test
       "args": ["/absolute_path/Dockerhub-mcp-server/dist/index.js"],
       "env": {
         "DOCKERHUB_USERNAME": "",
-        "DOCKERHUB_TOKEN": ""
+        "DOCKERHUB_PASSWORD": "",
       },
       "disabled": false
     }
