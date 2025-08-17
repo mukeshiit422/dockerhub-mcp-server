@@ -6,11 +6,17 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix: { node: [18, 20, 22] }
+    
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -33,9 +39,8 @@ jobs:
         env:
           USER:  ${{ secrets.DOCKERHUB_USERNAME }}
           PASS:  ${{ secrets.DOCKERHUB_PASSWORD }}
-          TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
-          if [[ -n "$USER" && ( -n "$PASS" || -n "$TOKEN" ) ]]; then
+          if [[ -n "$USER" && ( -n "$PASS"  ) ]]; then
             echo "has_secrets=true" >> "$GITHUB_OUTPUT"
           else
             echo "has_secrets=false" >> "$GITHUB_OUTPUT"
@@ -57,7 +62,6 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          DOCKERHUB_TOKEN:     ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
           node -e "console.log('Integration placeholder OK')"
  

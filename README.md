@@ -25,7 +25,7 @@ pnpm test
   "mcpServers": {
     "dockerhub": {
       "command": "node",
-      "args": ["/absolute_path/Dockerhub-mcp-server/dist/index.js"],
+      "args": ["/absolute_path/dockerhub-mcp-server/dist/index.js"],
       "env": {
         "DOCKERHUB_USERNAME": "",
         "DOCKERHUB_PASSWORD": "",
