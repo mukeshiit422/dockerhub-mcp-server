@@ -19,7 +19,7 @@ pnpm test
 
 ```
 
-# MCP server congiguration
+## MCP server local congiguration
 ```json
 {
   "mcpServers": {
@@ -35,5 +35,24 @@ pnpm test
   }
 }
 ```
+
+## MCP server docker congiguration
+```json
+{
+  "mcpServers": {
+    "dockerhub": {
+      "command": "docker",
+      "args": [
+        "run","--rm","-i",
+        "-e","DOCKERHUB_USERNAME=your-user",
+        "-e","DOCKERHUB_PASSWORD=your-password",
+        "{repo_name}:latest"
+      ],
+      "disabled": false
+    }
+  }
+}
+```
+
 
  

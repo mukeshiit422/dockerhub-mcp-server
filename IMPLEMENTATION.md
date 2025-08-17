@@ -93,6 +93,8 @@ Environment variables (see `.env.example`):
 
 
 ## 8  MCP server congiguration for Cline 
+
+### Local Configuration
 ```json
 {
   "mcpServers": {
@@ -104,6 +106,24 @@ Environment variables (see `.env.example`):
         "DOCKERHUB_TOKEN": "",
         "DOCKERHUB_PASSWORD":""
       },
+      "disabled": false
+    }
+  }
+}
+```
+### Docker Configuration
+
+```json
+{
+  "mcpServers": {
+    "dockerhub": {
+      "command": "docker",
+      "args": [
+        "run","--rm","-i",
+        "-e","DOCKERHUB_USERNAME=your-user",
+        "-e","DOCKERHUB_PASSWORD=your-password",
+        "{repo_name}:latest"
+      ],
       "disabled": false
     }
   }
